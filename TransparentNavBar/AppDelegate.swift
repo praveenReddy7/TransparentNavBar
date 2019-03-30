@@ -15,7 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        window?.rootViewController = UINavigationController.init(rootViewController: ViewController())
+        window?.backgroundColor = UIColor.white
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
@@ -44,3 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+extension UIApplication {
+    var statusBarView: UIView? {
+        return value(forKey: "statusBar") as? UIView
+    }
+}
